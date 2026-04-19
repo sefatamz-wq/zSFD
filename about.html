@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | .RABBANI.</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #0f1111;
+            --accent-color: #c9a77c;
+            --text-main: #0f1111;
+            --text-muted: #565959;
+            --bg-main: #ffffff;
+            --bg-secondary: #f7f7f7;
+            --border-color: #e5e5e5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* Header / Navbar */
+        .header {
+            background-color: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+        }
+
+        .header .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .header .back-link {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .header .back-link:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .about-hero {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .about-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            filter: brightness(0.4);
+            transform: scale(1.1);
+            animation: slowZoom 20s infinite alternate;
+        }
+
+        @keyframes slowZoom {
+            from {
+                transform: scale(1.05);
+            }
+
+            to {
+                transform: scale(1.15);
+            }
+        }
+
+        .about-hero-content {
+            z-index: 1;
+            padding: 0 20px;
+            animation: slideUp 1s ease-out 0.2s backwards;
+        }
+
+        .about-hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .about-hero-content p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #eaeaea;
+        }
+
+        /* Content Section */
+        .about-section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .about-text h2 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .about-text p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            animation: slideUp 1s ease-out 0.4s backwards;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background-color: var(--bg-secondary);
+            padding: 80px 20px;
+            margin-top: 50px;
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h4 {
+            font-size: 3.5rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: transform 0.3s ease, background-color 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #1ebe56;
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+
+            .about-hero-content h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        Free worldwide shipping on all orders over $150.
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="home.html" class="logo">.RABBANI.</a>
+        <nav style="display: flex; gap: 30px;">
+            <a href="home.html" style="text-decoration: none; color: black; font-weight: 500;">HOME</a>
+            <a href="store.html" style="text-decoration: none; color: black; font-weight: 500;">SHOP</a>
+            <a href="TRAING VIDEO.html" style="text-decoration: none; color: black; font-weight: 500;">TRAINING</a>
+            <a href="about.html" style="text-decoration: none; color: black; font-weight: 500;">ABOUT US</a>
+        </nav>
+        <a href="store.html" class="back-link"><i class="fas fa-shopping-bag"></i> SHOP NOW</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <img src="Gemini_Generated_Image_l8a14gl8a14gl8a1.png" alt="Football Field" class="about-hero-bg">
+        <div class="about-hero-content">
+            <h1> .RABBANI. Your Game</h1>
+            <p>We are dedicated to providing the world's most premium football training equipment to help you unlock
+                your true potential.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="about-section">
+        <div class="about-grid">
+            <div class="about-text" style="animation: slideUp 1s ease-out 0.3s backwards;">
+                <h3>Our Heritage</h3>
+                <h2>A Legacy of Quality & Trust</h2>
+                <p>Welcome to <strong>.RABBANI.</strong>, where true passion meets elite performance. For over a decade,
+                    we have been at the absolute forefront of providing premium training equipment tailored specifically
+                    for champions.</p>
+                <p>Our journey began with a simple but profound mission: to empower athletes across the world to train
+                    like uncompromising pros right from the comfort of their own homes. We craft our products using only
+                    the most durable, premium materials designed to withstand the toughest workouts.</p>
+                <p>Today, we represent a deeply trusted name for hundreds of thousands of fitness enthusiasts globally.
+                    Our dedication to world-class quality, rapid innovation, and ultimate customer satisfaction has
+                    earned us the unwavering trust of athletes and everyday heroes alike. Your success is our mission.
+                </p>
+            </div>
+            <div class="about-image">
+                <img src="Gemini_Generated_Image_l8a14gl8a14gl8a1.png">
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item" style="animation: slideUp 1s ease-out 0.5s backwards;">
+                <h4>15+</h4>
+                <p>Years of Excellence</p>
+            </div>
+            <div class="stat-item" style="animation: slideUp 1s ease-out 0.6s backwards;">
+                <h4>250k+</h4>
+                <p>Trusted Customers</p>
+            </div>
+            <div class="stat-item" style="animation: slideUp 1s ease-out 0.7s backwards;">
+                <h4>4.9</h4>
+                <p>Average Rating</p>
+            </div>
+            <div class="stat-item" style="animation: slideUp 1s ease-out 0.8s backwards;">
+                <h4>100%</h4>
+                <p>Premium Quality</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Permanent WhatsApp Button -->
+    <a href="https://wa.me/923477128889" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+
+</html>
