@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.RABBANI. | Home - Professional Football Training</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0f1111;
+            --secondary-color: #f7f7f7;
+            --accent-color: #c9a77c;
+            --teal-color: #00bcd4;
+            --text-main: #333333;
+            --text-muted: #767676;
+            --bg-white: #ffffff;
+            --border-color: #e5e5e5;
+            --animation-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-white);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 1rem;
+            text-decoration: none;
+            color: var(--primary-color);
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Gemini_Generated_Image_l8a14gl8a14gl8a1.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            font-style: italic;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--secondary-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-content {
+            padding: 30px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            min-height: 60px;
+        }
+
+        .feature-card .sub-title {
+            color: var(--teal-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        .feature-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .category-card {
+            position: relative;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .category-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .category-card:hover .category-img {
+            transform: scale(1.08);
+        }
+
+        .category-content {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 4px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            transform: translateY(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover .category-content {
+            transform: translateY(0);
+        }
+
+        .category-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .category-content .btn-shop {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul a:hover {
+            color: white;
+        }
+
+        @media (max-width: 968px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container nav-container">
+            <a href="Untitled design (2).png" class="logo">.RABBANI.</a>
+            
+            <nav class="nav-links">
+                <a href="home.html">HOME</a>
+                <a href="store.html">SHOP</a>
+                <a href="TRAING VIDEO.html">TRAINING</a>
+                <a href="about.html">ABOUT US</a>
+                <a href="https://wa.me/923477128889">CONTACT</a>
+            </nav>
+
+            <div class="nav-icons" style="font-size: 1.2rem; display: flex; gap: 20px;">
+                <i class="fas fa-search"></i>
+                <i class="far fa-user"></i>
+                <i class="fas fa-shopping-bag"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Improve game in 4 weeks</h1>
+            <p>Guided professional training at home alongside your team practice – only 20 minutes a day to see results!</p>
+        </div>
+    </section>
+
+    <section class="features container">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-content">
+                    <h3>Training program certified by UEFA coaches</h3>
+                    <span class="sub-title">Physical + mental training</span>
+                    <p>Our 7-level ball mastery program is created by coaches and sports academics with extensive experience in youth football. It's designed to teach key ball control techniques, to improve your game, decision making and overall performance.</p>
+                </div>
+                <img src="Gemini_Generated_Image_y7a4vcy7a4vcy7a4 (1).png" alt="UEFA Training" class="feature-img">
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-content">
+                    <h3>Train anywhere, anytime with Mastery football training mat</h3>
+                    <span class="sub-title">Build discipline with no excuses</span>
+                    <p>Our compact and portable football training mat allows no excuses to miss trainings, no matter the weather, daytime or busy schedule – you can always find 20min a day!</p>
+                </div>
+                <img src="Untitled design.png" alt="Football Training Mat" class="feature-img">
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-content">
+                    <h3>Engagement & community</h3>
+                    <span class="sub-title">Compete, collect experience points & trophies</span>
+                    <p>Our app invites you to engage in friendly competition with fellow users and showcase your progress. Keep tabs on your development through a personalized skill card, offering a snapshot of your strengths and areas for improvement.</p>
+                </div>
+                <img src="Gemini_Generated_Image_rbq6xrbq6xrbq6xr (1).png" alt="Community" class="feature-img">
+            </div>
+        </div>
+    <section class="categories container">
+        <div class="section-header">
+            <h2>Shop by Category</h2>
+            <p style="color: var(--text-muted);">Explore our professional football training collections</p>
+        </div>
+        <div class="category-grid">
+            <div class="category-card">
+                <a href="store.html">
+                    <img src="Gemini_Generated_Image_l8a14gl8a14gl8a1.png" alt="Pro Mats" class="category-img">
+                </a>
+                <div class="category-content">
+                    <h3>PRO TRAINING MATS</h3>
+                    <a href="store.html" class="btn-shop">ADD TO CART</a>
+                </div>
+            </div>
+            <div class="category-card">
+                <a href="store.html">
+                    <img src="Untitled design.png" alt="Skill Practice" class="category-img">
+                </a>
+                <div class="category-content">
+                    <h3>SKILL PRACTICE</h3>
+                    <a href="store.html" class="btn-shop">ADD TO CART</a>
+                </div>
+            </div>
+            <div class="category-card">
+                <a href="store.html">
+                    <img src="Gemini_Generated_Image_51533y51533y5153.png" alt="Accessories" class="category-img">
+                </a>
+                <div class="category-content">
+                    <h3>ACCESSORIES</h3>
+                    <a href="store.html" class="btn-shop">ADD TO CART</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">.RABBANI.</span>
+                    <p>Redefining football training at home with premium equipment and professional methodology.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>SHOP</h4>
+                    <ul>
+                        <li><a href="store.html">All Products</a></li>
+                        <li><a href="store.html">Soccer Mats</a></li>
+                        <li><a href="store.html">Training Gear</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>HELP</h4>
+                    <ul>
+                        <li><a href="https://wa.me/923477128889">Contact Us</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SOCIAL</h4>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+                <p>&copy; 2026 .RABBANI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
